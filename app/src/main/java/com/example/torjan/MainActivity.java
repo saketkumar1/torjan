@@ -8,6 +8,8 @@ public class MainActivity extends AppCompatActivity {
 //firebase credentials
 //torjantrio@gmail.com
 //topper@9876
+
+    int a=0;//by abhinav sample data
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
