@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "469790590339",
+    "firebase_url": "https://torjan-cd610.firebaseio.com",
+    "project_id": "torjan-cd610",
+    "storage_bucket": "torjan-cd610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469790590339:android:61844357855a61093ee2b6",
+        "android_client_info": {
+          "package_name": "com.example.torjan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469790590339-o1jd2o3638i5pnmnfka3m305rm28v580.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApeLdH5EcOToYUc64Km6jM-hXMkNd8PQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469790590339-o1jd2o3638i5pnmnfka3m305rm28v580.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
