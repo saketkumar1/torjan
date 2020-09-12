@@ -1,5 +1,6 @@
 package com.example.torjan.Webservice;
 import com.example.torjan.Contact_Helpline.getContacts;
+import com.example.torjan.Notification_Advisiroy.getAdvisory;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -7,4 +8,7 @@ import retrofit2.http.GET;
 public interface AppAPI {
     @GET("contacts")
     Call<getContacts> getContacts();
+
+    @GET("notifications")
+    Call<getAdvisory> getAdvisory();
 }
