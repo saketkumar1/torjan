@@ -54,7 +54,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         anim.setStartOffset(20);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
-       // holder.txtPDF.startAnimation(anim);
+        holder.txtPDF.startAnimation(anim);
 
       holder.txtTitle.setOnClickListener(new View.OnClickListener() {
           @Override
