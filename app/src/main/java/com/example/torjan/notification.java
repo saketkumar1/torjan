@@ -31,9 +31,9 @@ public class notification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        load();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
+        load();
 
         bottomNavigationView.setSelectedItemId(R.id.navigation_notification);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -65,10 +65,7 @@ public class notification extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView=findViewById(R.id.recyclerViewNotifications);
-        adapter=new NotificationAdapter(notification.this);
-        adapter.setNotifications(notifications);
 
-        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
@@ -91,12 +88,18 @@ public class notification extends AppCompatActivity {
     public void load(){
         AppAPI appAPI= BaseURL.getAPIService();
         Call<getAdvisory> call=appAPI.getAdvisory();
-        notifications=new ArrayList<>();
         call.enqueue(new Callback<getAdvisory>() {
             @Override
             public void onResponse(Call<getAdvisory> call, Response<getAdvisory> response) {
+                notifications=new ArrayList<>();
                 notifications=response.body().getData().getNotification();
-                Log.i("djasjhfdaskjdhask",""+notifications.get(0).getTitle());
+                if(notifications.size()>0) {
+                    adapter = new NotificationAdapter(notification.this, notifications);
+                    adapter.setNotifications(notifications);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    Log.i("djasjhfdaskjdhask", "" + notifications.size());
+                }
             }
 
             @Override
@@ -105,6 +108,7 @@ public class notification extends AppCompatActivity {
             }
         });
     }
+
 
 
 }
