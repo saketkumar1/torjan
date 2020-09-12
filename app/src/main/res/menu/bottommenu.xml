@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/navigation_helpline"
+        android:icon="@drawable/ic_baseline_perm_phone_msg_24"
+        android:title="Phone" />
+
+    <item
+        android:id="@+id/navigation_stat"
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="stat" />
+
+
+    <item
+        android:id="@+id/navigation_notification"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
+        android:title="notification" />
+
+    <item
+        android:id="@+id/navigation_hospital_dashboard"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="dashboard" />
+
+</menu>
