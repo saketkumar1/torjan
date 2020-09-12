@@ -16,8 +16,9 @@
         android:layout_marginStart="10dp"
         android:text="Revised guidelines for International Arrivals"
         android:textColor="#042e2c"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/fresca"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
