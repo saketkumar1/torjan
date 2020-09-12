@@ -25,23 +25,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView textView=findViewById(R.id.TextView);
-        load();
-    }
-    public static void load(){
-        AppAPI appAPI= BaseURL.getAPIService();
-        Call<getContacts>call=appAPI.getContacts();
-        call.enqueue(new Callback<getContacts>() {
-            @Override
-            public void onResponse(Call<getContacts> call, Response<getContacts> response) {
-                Log.e("dasdsa",response.body().getData().getContacts().getRegional().get(0).getLoc().toString());
-                Log.i("fsdafddfdsfdsf",response.body().getLastOriginUpdate());
-            }
-
-            @Override
-            public void onFailure(Call<getContacts> call, Throwable t) {
-                Log.e("error",t.getCause().toString());
-            }
-        });
     }
 }
