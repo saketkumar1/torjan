@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 
-    private ArrayList<NotificationModel> notifications;
+    private ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications;
     private Context context;
 
     public NotificationAdapter(Context context) {
@@ -40,8 +40,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-      holder.txtTitle.setText(notifications.get(position).getTitle());
-      holder.txtDate.setText(notifications.get(position).getDate());
+      holder.txtTitle.setText("wadaswdasdas");
+      //holder.txtDate.setText(notifications.get(position).getDate());
 
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(1000); //You can manage the blinking time with this parameter
@@ -64,7 +64,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                       Intent intent = new Intent();
                       intent.setAction(Intent.ACTION_VIEW);
                       intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                      intent.setData(Uri.parse(notifications.get(position).getLink()));
+                      //intent.setData(Uri.parse(notifications.get(position).getLink()));
                       context.startActivity(intent);
 
                   }
@@ -119,7 +119,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return notifications.size();
     }
 
-    public void setNotifications(ArrayList<NotificationModel> notifications) {
+    public void setNotifications(ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications) {
         this.notifications = notifications;
     }
 

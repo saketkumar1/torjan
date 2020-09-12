@@ -7,22 +7,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.torjan.Notification_Advisiroy.getAdvisory;
+import com.example.torjan.Webservice.AppAPI;
+import com.example.torjan.Webservice.BaseURL;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class notification extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private NotificationAdapter adapter;
-    private ArrayList<NotificationModel> notifications;
+    private ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+        load();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
 
@@ -56,17 +65,6 @@ public class notification extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView=findViewById(R.id.recyclerViewNotifications);
-        notifications=new ArrayList<>();
-
-        notifications.add(new NotificationModel("Revised guidelines for International\n" +
-                "Arrivals","02.08.2020","https://www.mohfw.gov.in/pdf/RevisedguidelinesforInternationalArrivals02082020.pdf"));
-        notifications.add(new NotificationModel("Revised guidelines for International\n" +
-                "Arrivals","02.08.2020","https://www.mohfw.gov.in/pdf/RevisedguidelinesforInternationalArrivals02082020.pdf"));
-        notifications.add(new NotificationModel("Revised guidelines for International\n" +
-                "Arrivals","02.08.2020","https://www.mohfw.gov.in/pdf/RevisedguidelinesforInternationalArrivals02082020.pdf"));
-        notifications.add(new NotificationModel("Revised guidelines for International\n" +
-                "Arrivals","02.08.2020","https://www.mohfw.gov.in/pdf/RevisedguidelinesforInternationalArrivals02082020.pdf"));
-
         adapter=new NotificationAdapter(notification.this);
         adapter.setNotifications(notifications);
 
@@ -89,6 +87,23 @@ public class notification extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void load(){
+        AppAPI appAPI= BaseURL.getAPIService();
+        Call<getAdvisory> call=appAPI.getAdvisory();
+        notifications=new ArrayList<>();
+        call.enqueue(new Callback<getAdvisory>() {
+            @Override
+            public void onResponse(Call<getAdvisory> call, Response<getAdvisory> response) {
+                notifications=response.body().getData().getNotification();
+                Log.i("djasjhfdaskjdhask",""+notifications.get(0).getTitle());
+            }
+
+            @Override
+            public void onFailure(Call<getAdvisory> call, Throwable t) {
+                Log.e("error",t.getCause().toString());
+            }
+        });
     }
 
 
