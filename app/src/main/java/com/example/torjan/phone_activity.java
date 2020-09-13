@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -49,6 +51,14 @@ public class phone_activity extends AppCompatActivity {
     ArrayList<String> arrayList;
     recycleadapter recycleadapter1;
     private RecyclerView.LayoutManager layoutManager;
+    ImageView facebook;
+    String facebbokvalue;
+    ImageView twitter;
+    String twittervalue;
+    ImageView gmail;
+    String gmailvalue;
+    ImageView media;
+    String mediavalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +74,10 @@ public class phone_activity extends AppCompatActivity {
         recyclerView=findViewById(R.id.state_recycle);
         spinner=findViewById(R.id.state_spinner);
         callTextView=findViewById(R.id.callTextView);
+        facebook=findViewById(R.id.facebookImageView);
+        twitter=findViewById(R.id.TwitterImageVIew);
+        gmail=findViewById(R.id.gmailImageVIew);
+        media=findViewById(R.id.mediaImageView);
         load();
 
         callTextView.setOnClickListener(new View.OnClickListener() {
@@ -77,10 +91,51 @@ public class phone_activity extends AppCompatActivity {
                 startActivity(callIntent);
             }
         });
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(facebbokvalue));
+                startActivity(intent);
 
+            }
+        });
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(twittervalue));
+                startActivity(intent);
+            }
+        });
+        gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + gmailvalue));
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "your_subject");
+                    intent.putExtra(Intent.EXTRA_TEXT, "your_text");
+                    startActivity(intent);
+                }catch(ActivityNotFoundException e){
+                    //TODO smth
+                }
 
-
-        load();
+            }
+        });
+        media.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(mediavalue));
+                startActivity(intent);
+            }
+        });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -115,6 +170,10 @@ public class phone_activity extends AppCompatActivity {
             public void onResponse(Call<getContacts> call, Response<getContacts> response) {
                 list=new ArrayList<>();
                 list=response.body().getData().getContacts().getRegional();
+                facebbokvalue=response.body().getData().getContacts().getPrimary().getFacebook();
+                twittervalue=response.body().getData().getContacts().getPrimary().getTwitter();
+                gmailvalue=response.body().getData().getContacts().getPrimary().getEmail();
+                mediavalue=response.body().getData().getContacts().getPrimary().getmedia().get(0);
                 //String[] ss={"Delhi","Raj","up","mp","dsa","up","mp","dsa"};
                 arrayList=new ArrayList<>();
                 number=new ArrayList<>();
