@@ -42,11 +42,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     public void onBindViewHolder(@NonNull NotificationAdapter.MyViewHolder holder, final int position) {
         String str=notifications.get(position).getTitle();
         if(str.length()>10 && str.charAt(1)!='.') {
-            holder.txtTitle.setText(str.substring(10));
-            holder.txtDate.setText(str.substring(0, 9));
+            holder.txtTitle.setText(str.substring(11));
+            holder.txtDate.setText(str.substring(0, 10)+"\n");
         }else{
             holder.txtTitle.setText(str);
-            holder.txtDate.setText("----------");
+            holder.txtDate.setText("----------"+"\n");
         }
 
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
@@ -54,7 +54,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         anim.setStartOffset(20);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
-        holder.txtPDF.startAnimation(anim);
+       // holder.txtPDF.startAnimation(anim);
 
       holder.txtTitle.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -62,8 +62,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
               AlertDialog.Builder builder = new AlertDialog.Builder(context);
               builder.setTitle("Notifications:");
-              builder.setMessage("Are you sure want to visit site,then press 'VISIT'.");
-              builder.setPositiveButton("Visit", new DialogInterface.OnClickListener() {
+              builder.setMessage("Are you sure want to open pdf");
+              builder.setPositiveButton("Open", new DialogInterface.OnClickListener() {
                   @Override
                   public void onClick(DialogInterface dialog, int which) {
 
@@ -76,7 +76,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                   }
               });
 
-              builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+              builder.setNegativeButton("Deny", new DialogInterface.OnClickListener() {
                   @Override
                   public void onClick(DialogInterface dialog, int which) {
 
