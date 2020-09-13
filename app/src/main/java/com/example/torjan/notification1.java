@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class notification extends AppCompatActivity {
+public class notification1 extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private NotificationAdapter adapter;
@@ -50,7 +50,7 @@ public class notification extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_notification:
-                        startActivity(new Intent(getApplicationContext(),notification.class));
+                        startActivity(new Intent(getApplicationContext(),notification1.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_hospital_dashboard:
@@ -94,7 +94,7 @@ public class notification extends AppCompatActivity {
                 notifications=new ArrayList<>();
                 notifications=response.body().getData().getNotification();
                 if(notifications.size()>0) {
-                    adapter = new NotificationAdapter(notification.this, notifications);
+                    adapter = new NotificationAdapter(notification1.this, notifications);
                     adapter.setNotifications(notifications);
                     recyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
