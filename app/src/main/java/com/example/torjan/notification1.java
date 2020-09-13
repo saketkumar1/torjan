@@ -26,7 +26,7 @@ public class notification1 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotificationAdapter adapter;
     private ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications;
-// test
+// test1
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
