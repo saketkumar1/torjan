@@ -9,6 +9,5 @@ public class data {
         return notification;
     }
 
-    @SerializedName("notifications")
     private ArrayList<notification> notification;
 }

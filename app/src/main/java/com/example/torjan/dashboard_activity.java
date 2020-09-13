@@ -1,26 +1,38 @@
 package com.example.torjan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class dashboard_activity extends AppCompatActivity {
+
+    private ViewPager pager;
+    private TabLayout tabLayout;
+
+    private MedicalCollegeFragment medicalCollegeFragment;
+    private HospitalFragment hospitalFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone);
+        setContentView(R.layout.activity_dashboard);
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
-
         bottomNavigationView.setSelectedItemId(R.id.navigation_hospital_dashboard);
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -35,7 +47,7 @@ public class dashboard_activity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_notification:
-                        startActivity(new Intent(getApplicationContext(),notification.class));
+                        startActivity(new Intent(getApplicationContext(), notification1.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_hospital_dashboard:
@@ -46,5 +58,56 @@ public class dashboard_activity extends AppCompatActivity {
                 return false;
             }
         });
+
+        tabLayout=findViewById(R.id.tabLayoutDashBoard);
+        pager=findViewById(R.id.viewPagerDashBoard);
+
+        medicalCollegeFragment=new MedicalCollegeFragment();
+        hospitalFragment=new HospitalFragment();
+
+        tabLayout.setupWithViewPager(pager);
+
+        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),0);
+
+        viewPagerAdapter.addfragment(hospitalFragment,"Hospital");
+        viewPagerAdapter.addfragment(medicalCollegeFragment,"Colleges");
+
+        pager.setAdapter(viewPagerAdapter);
+
+
+    }
+
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        private List<Fragment> fragments=new ArrayList<>();
+        private List<String> fragmentTitle=new ArrayList<>();
+
+        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+            super(fm, behavior);
+        }
+
+        public void addfragment(Fragment fragment,String title){
+
+            fragments.add(fragment);
+            fragmentTitle.add(title);
+
+        }
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return fragmentTitle.get(position);
+        }
     }
 }

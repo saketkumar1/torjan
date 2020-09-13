@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
 import com.example.torjan.Notification_Advisiroy.getAdvisory;
 import com.example.torjan.Webservice.AppAPI;
 import com.example.torjan.Webservice.BaseURL;
@@ -27,15 +28,19 @@ public class phone_activity extends AppCompatActivity {
 //torjantrio@gmail.com
 //topper@9876
 
+
     int a=0;//by abhinav sample data
     Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
+
         bottomNavigationView.setSelectedItemId(R.id.navigation_helpline);
         spinner=findViewById(R.id.state_spinner);
 
@@ -45,27 +50,29 @@ public class phone_activity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
+        load();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.navigation_helpline:
                         startActivity(new Intent(getApplicationContext(), phone_activity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.navigation_stat:
-                        startActivity(new Intent(getApplicationContext(),stat.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), stat.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.navigation_notification:
-                        startActivity(new Intent(getApplicationContext(),notification.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), notification1.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.navigation_hospital_dashboard:
-                        startActivity(new Intent(getApplicationContext(),dashboard_activity.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), dashboard_activity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -73,4 +80,19 @@ public class phone_activity extends AppCompatActivity {
         });
     }
 
+    public static void load() {
+        AppAPI appAPI = BaseURL.getAPIService();
+        Call<getHospitalbeds> call = appAPI.getHospitalbeds();
+        call.enqueue(new Callback<getHospitalbeds>() {
+            @Override
+            public void onResponse(Call<getHospitalbeds> call, Response<getHospitalbeds> response) {
+                Log.e("safadsfsda", response.body().getData().getRegional().get(5).getState());
+            }
+
+            @Override
+            public void onFailure(Call<getHospitalbeds> call, Throwable t) {
+
+            }
+        });
+    }
 }
