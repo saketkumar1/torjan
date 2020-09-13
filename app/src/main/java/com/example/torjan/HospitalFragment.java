@@ -3,10 +3,14 @@ package com.example.torjan;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HospitalFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private HospitalAdapter adapter;
+    private ArrayList<HospitalModel> datalist;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +67,31 @@ public class HospitalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hospital, container, false);
+
+        View view=inflater.inflate(R.layout.fragment_hospital, container, false);
+        recyclerView=view.findViewById(R.id.recyclerViewStates);
+        datalist=new ArrayList<>();
+
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+
+
+
+        adapter=new HospitalAdapter(getActivity());
+        adapter.setListStateWise(datalist);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return view;
+
     }
 }

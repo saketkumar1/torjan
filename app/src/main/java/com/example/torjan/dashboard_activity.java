@@ -14,17 +14,21 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class dashboard_activity extends AppCompatActivity {
 
-    private ViewPager pager;
-    private TabLayout tabLayout;
+//    private ViewPager pager;
+//    private TabLayout tabLayout;
 
-    private MedicalCollegeFragment medicalCollegeFragment;
-    private HospitalFragment hospitalFragment;
+    private ChipNavigationBar chipNavigation;
+    FragmentManager fragmentManager;
+
+//    private MedicalCollegeFragment medicalCollegeFragment;
+//    private HospitalFragment hospitalFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,55 +63,100 @@ public class dashboard_activity extends AppCompatActivity {
             }
         });
 
-        tabLayout=findViewById(R.id.tabLayoutDashBoard);
-        pager=findViewById(R.id.viewPagerDashBoard);
+        chipNavigation=findViewById(R.id.chipNavigation);
 
-        medicalCollegeFragment=new MedicalCollegeFragment();
-        hospitalFragment=new HospitalFragment();
+//        tabLayout=findViewById(R.id.tabLayoutDashBoard);
+//        pager=findViewById(R.id.viewPagerDashBoard);
 
-        tabLayout.setupWithViewPager(pager);
+//        medicalCollegeFragment=new MedicalCollegeFragment();
+//        hospitalFragment=new HospitalFragment();
+//
 
-        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),0);
+        if(savedInstanceState==null){
 
-        viewPagerAdapter.addfragment(hospitalFragment,"Hospital");
-        viewPagerAdapter.addfragment(medicalCollegeFragment,"Colleges");
+            chipNavigation.setItemSelected(R.id.hospitalicon,true);
+            fragmentManager=getSupportFragmentManager();
+            HospitalFragment hospitalFragment=new HospitalFragment();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container,hospitalFragment)
+                    .commit();
 
-        pager.setAdapter(viewPagerAdapter);
+        }
+
+        chipNavigation.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                Fragment fragment=null;
+
+                switch (i){
+
+                    case R.id.hospitalicon:
+                        fragment=new HospitalFragment();
+                        break;
+
+                    case R.id.Collegeicon:
+                        fragment=new MedicalCollegeFragment();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                if(fragment!=null){
+
+                    fragmentManager=getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container,fragment)
+                            .commit();
+
+                }
+
+            }
+        });
+
+//        tabLayout.setupWithViewPager(pager);
+//
+//        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),0);
+//
+//        viewPagerAdapter.addfragment(hospitalFragment,"Hospital");
+//        viewPagerAdapter.addfragment(medicalCollegeFragment,"Colleges");
+//
+//        pager.setAdapter(viewPagerAdapter);
 
 
     }
 
-    private class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        private List<Fragment> fragments=new ArrayList<>();
-        private List<String> fragmentTitle=new ArrayList<>();
-
-        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-            super(fm, behavior);
-        }
-
-        public void addfragment(Fragment fragment,String title){
-
-            fragments.add(fragment);
-            fragmentTitle.add(title);
-
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return fragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return fragmentTitle.get(position);
-        }
-    }
+//    private class ViewPagerAdapter extends FragmentPagerAdapter {
+//
+//        private List<Fragment> fragments=new ArrayList<>();
+//        private List<String> fragmentTitle=new ArrayList<>();
+//
+//        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+//            super(fm, behavior);
+//        }
+//
+//        public void addfragment(Fragment fragment,String title){
+//
+//            fragments.add(fragment);
+//            fragmentTitle.add(title);
+//
+//        }
+//
+//        @NonNull
+//        @Override
+//        public Fragment getItem(int position) {
+//            return fragments.get(position);
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return fragments.size();
+//        }
+//
+//        @Nullable
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            return fragmentTitle.get(position);
+//        }
+//    }
 }
