@@ -2,6 +2,8 @@ package com.example.torjan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,6 +34,10 @@ public class phone_activity extends AppCompatActivity {
 
     int a=0;//by abhinav sample data
     Spinner spinner;
+    RecyclerView recyclerView;
+    ArrayList<word> title;
+    recycleadapter recycleadapter1;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +50,48 @@ public class phone_activity extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.navigation_helpline);
         spinner=findViewById(R.id.state_spinner);
+        recyclerView=findViewById(R.id.state_recycle);
 
         String[] ss={"Delhi","Raj","up","mp"};
         ArrayList<String> arrayList=new ArrayList<>(Arrays.asList(ss));
         ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.state,arrayList);
         spinner.setAdapter(adapter);
+
+
+        title = new ArrayList<>();
+
+
+        title.add(new word("delhiii","987654321"));
+        title.add(new word("up","987654321"));
+        title.add(new word("mp","987654321"));
+        title.add(new word("bihar","987654321"));
+        title.add(new word("delhiii","987654321"));
+        title.add(new word("delhiii","987654321"));
+
+
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        recycleadapter1 = new recycleadapter(title);
+        recyclerView.setAdapter(recycleadapter1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         load();
