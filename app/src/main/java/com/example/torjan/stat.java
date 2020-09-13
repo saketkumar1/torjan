@@ -35,7 +35,7 @@ public class stat extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_notification:
-                        startActivity(new Intent(getApplicationContext(),notification.class));
+                        startActivity(new Intent(getApplicationContext(), notification1.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigation_hospital_dashboard:

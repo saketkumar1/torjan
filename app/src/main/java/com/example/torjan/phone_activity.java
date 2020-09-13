@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
 import com.example.torjan.Hospitals_Dashboards.getMedicalcollegeBeds;
@@ -14,6 +16,9 @@ import com.example.torjan.Notification_Advisiroy.getAdvisory;
 import com.example.torjan.Webservice.AppAPI;
 import com.example.torjan.Webservice.BaseURL;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +29,9 @@ public class phone_activity extends AppCompatActivity {
 //torjantrio@gmail.com
 //topper@9876
 
-    int a = 0;//by abhinav sample data
+
+    int a=0;//by abhinav sample data
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +39,17 @@ public class phone_activity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
 
         bottomNavigationView.setSelectedItemId(R.id.navigation_helpline);
+        spinner=findViewById(R.id.state_spinner);
+
+        String[] ss={"Delhi","Raj","up","mp"};
+        ArrayList<String> arrayList=new ArrayList<>(Arrays.asList(ss));
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.state,arrayList);
+        spinner.setAdapter(adapter);
+
 
         load();
 
@@ -53,7 +68,7 @@ public class phone_activity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.navigation_notification:
-                        startActivity(new Intent(getApplicationContext(), notification.class));
+                        startActivity(new Intent(getApplicationContext(), notification1.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.navigation_hospital_dashboard:
