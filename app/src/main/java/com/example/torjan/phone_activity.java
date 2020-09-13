@@ -6,12 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.example.torjan.Contact_Helpline.Regional;
+import com.example.torjan.Contact_Helpline.getContacts;
 import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
 import com.example.torjan.Hospitals_Dashboards.getMedicalcollegeBeds;
 import com.example.torjan.Notification_Advisiroy.getAdvisory;
@@ -36,6 +42,10 @@ public class phone_activity extends AppCompatActivity {
     Spinner spinner;
     RecyclerView recyclerView;
     ArrayList<word> title;
+    private ArrayList<Regional> list;
+    private ArrayList<String> number;
+    TextView callTextView;
+    Integer stateNo=-1;
     recycleadapter recycleadapter1;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -51,11 +61,21 @@ public class phone_activity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.navigation_helpline);
         spinner=findViewById(R.id.state_spinner);
         recyclerView=findViewById(R.id.state_recycle);
+        spinner=findViewById(R.id.state_spinner);
+        callTextView=findViewById(R.id.callTextView);
+        load();
 
-        String[] ss={"Delhi","Raj","up","mp"};
-        ArrayList<String> arrayList=new ArrayList<>(Arrays.asList(ss));
-        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.state,arrayList);
-        spinner.setAdapter(adapter);
+        callTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                if(stateNo==-1)
+                    callIntent.setData(Uri.parse("tel:" + "1075"));
+                else
+                    callIntent.setData(Uri.parse("tel:" + number.get(stateNo)));//change the number
+                startActivity(callIntent);
+            }
+        });
 
 
         title = new ArrayList<>();
@@ -74,29 +94,7 @@ public class phone_activity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recycleadapter1 = new recycleadapter(title);
         recyclerView.setAdapter(recycleadapter1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         load();
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -123,20 +121,47 @@ public class phone_activity extends AppCompatActivity {
             }
         });
     }
-
-    public static void load() {
+    public void load() {
         AppAPI appAPI = BaseURL.getAPIService();
-        Call<getMedicalcollegeBeds> call = appAPI.getMedicalcollegeBeds();
-        call.enqueue(new Callback<getMedicalcollegeBeds>() {
+        Call<getContacts> call = appAPI.getContacts();
+        call.enqueue(new Callback<getContacts>() {
             @Override
-            public void onResponse(Call<getMedicalcollegeBeds> call, Response<getMedicalcollegeBeds> response) {
-                Log.i("dsakjdn",response.body().getData().getMedicalColleges().get(15).getState());
+            public void onResponse(Call<getContacts> call, Response<getContacts> response) {
+                list=new ArrayList<>();
+                list=response.body().getData().getContacts().getRegional();
+                //String[] ss={"Delhi","Raj","up","mp","dsa","up","mp","dsa"};
+                ArrayList<String> arrayList=new ArrayList<>();
+                number=new ArrayList<>();
+                arrayList.add("Select your state");
+                for(int item=0;item<list.size();item++){
+                    arrayList.add(list.get(item).getLoc());
+                    number.add((list.get(item).getNumber()));
+                }
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(phone_activity.this,R.layout.state,arrayList);
+                spinner.setAdapter(adapter);
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        if(position>0) {
+                            stateNo=position-1;
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
             }
 
             @Override
-            public void onFailure(Call<getMedicalcollegeBeds> call, Throwable t) {
+            public void onFailure(Call<getContacts> call, Throwable t) {
 
             }
         });
+
     }
+
+
 }
