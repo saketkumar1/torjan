@@ -7,11 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.torjan.Notification_Advisiroy.getAdvisory;
 import com.example.torjan.Webservice.AppAPI;
 import com.example.torjan.Webservice.BaseURL;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +28,7 @@ public class phone_activity extends AppCompatActivity {
 //topper@9876
 
     int a=0;//by abhinav sample data
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +36,14 @@ public class phone_activity extends AppCompatActivity {
 
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
-
         bottomNavigationView.setSelectedItemId(R.id.navigation_helpline);
+        spinner=findViewById(R.id.state_spinner);
+
+        String[] ss={"Delhi","Raj","up","mp"};
+        ArrayList<String> arrayList=new ArrayList<>(Arrays.asList(ss));
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.state,arrayList);
+        spinner.setAdapter(adapter);
+
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
