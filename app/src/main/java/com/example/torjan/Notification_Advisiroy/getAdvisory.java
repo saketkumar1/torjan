@@ -4,13 +4,14 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class getAdvisory {
-    @Expose
+    @SerializedName("success")
     private Boolean success;
-    @Expose
+
+    @SerializedName("data")
     private data data;
-    @Expose
+    @SerializedName("lastRefreshed")
     private String lastRefreshed;
-    @Expose
+    @SerializedName("lastOriginUpdate")
     private String lastOriginUpdate;
 
     public Boolean getSuccess() {
