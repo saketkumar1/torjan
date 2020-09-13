@@ -1,24 +1,27 @@
-package com.example.torjan.Notification_Advisiroy;
+package com.example.torjan.Hospitals_Dashboards;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class getAdvisory {
+public class getMedicalcollegeBeds {
     @SerializedName("success")
+    @Expose
     private Boolean success;
-
     @SerializedName("data")
-    private data data;
+    @Expose
+    private mc_data data;
     @SerializedName("lastRefreshed")
+    @Expose
     private String lastRefreshed;
     @SerializedName("lastOriginUpdate")
+    @Expose
     private String lastOriginUpdate;
 
     public Boolean getSuccess() {
         return success;
     }
 
-    public data getData() {
+    public mc_data getData() {
         return data;
     }
 
@@ -29,6 +32,4 @@ public class getAdvisory {
     public String getLastOriginUpdate() {
         return lastOriginUpdate;
     }
-
 }
-
