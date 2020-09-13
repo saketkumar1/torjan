@@ -46,6 +46,7 @@ public class phone_activity extends AppCompatActivity {
     private ArrayList<String> number;
     TextView callTextView;
     Integer stateNo=-1;
+    ArrayList<String> arrayList;
     recycleadapter recycleadapter1;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -78,22 +79,7 @@ public class phone_activity extends AppCompatActivity {
         });
 
 
-        title = new ArrayList<>();
 
-
-        title.add(new word("delhiii","987654321"));
-        title.add(new word("up","987654321"));
-        title.add(new word("mp","987654321"));
-        title.add(new word("bihar","987654321"));
-        title.add(new word("delhiii","987654321"));
-        title.add(new word("delhiii","987654321"));
-
-
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-        recycleadapter1 = new recycleadapter(title);
-        recyclerView.setAdapter(recycleadapter1);
         load();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -130,7 +116,7 @@ public class phone_activity extends AppCompatActivity {
                 list=new ArrayList<>();
                 list=response.body().getData().getContacts().getRegional();
                 //String[] ss={"Delhi","Raj","up","mp","dsa","up","mp","dsa"};
-                ArrayList<String> arrayList=new ArrayList<>();
+                arrayList=new ArrayList<>();
                 number=new ArrayList<>();
                 arrayList.add("Select your state");
                 for(int item=0;item<list.size();item++){
@@ -139,6 +125,18 @@ public class phone_activity extends AppCompatActivity {
                 }
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(phone_activity.this,R.layout.state,arrayList);
                 spinner.setAdapter(adapter);
+                title = new ArrayList<>();
+                for(int count=0;count<number.size();count++){
+                    title.add(new word(arrayList.get(count+1),number.get(count)));
+                }
+
+
+                recyclerView.setHasFixedSize(true);
+                layoutManager = new LinearLayoutManager(phone_activity.this, LinearLayoutManager.HORIZONTAL, false);
+                recyclerView.setLayoutManager(layoutManager);
+                recycleadapter1 = new recycleadapter(title);
+                recyclerView.setAdapter(recycleadapter1);
+
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -149,7 +147,6 @@ public class phone_activity extends AppCompatActivity {
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
-
                     }
                 });
 

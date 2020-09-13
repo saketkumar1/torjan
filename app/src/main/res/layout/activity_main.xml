@@ -13,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -36,6 +37,7 @@
                         android:textColor="@color/white"
                         android:textSize="24dp"
                         android:textStyle="bold" />
+
                     <Spinner
                         android:id="@+id/state_spinner"
                         android:layout_width="0dp"
@@ -82,8 +84,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-
 
 
             <TextView
@@ -173,26 +173,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="State helpline info "
-                android:textStyle="bold"
                 android:textSize="15dp"
-                android:layout_margin="20dp"/>
+                android:textStyle="bold" />
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/state_recycle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/state_recycle"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:text="Contact and Helpline Information "
-                android:textStyle="bold"
                 android:textSize="15dp"
-                android:layout_margin="20dp"/>
+                android:textStyle="bold" />
 
 
             <LinearLayout
@@ -282,7 +282,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/news"/>
+                        android:src="@drawable/news" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -298,39 +298,12 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
-
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginLeft="20dp"
-               android:orientation="horizontal">
-
-
-               <ImageView
-                   android:layout_width="20dp"
-                   android:layout_height="20dp"
-                   android:src="@drawable/ic_baseline_call_24"/>
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15dp"
-                   android:layout_marginLeft="15dp"
-                   android:text="Number"/>
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginLeft="15dp"
-                   android:text="+91-11-23978046"/>
-           </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -342,33 +315,50 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_baseline_phone_in_talk_24"/>
+                        android:src="@drawable/ic_baseline_call_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:textSize="15dp"
-                        android:text="Number-tollfree"/>
+                        android:text="Number"
+                        android:textSize="15dp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="1075"/>
+                        android:text="+91-11-23978046" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_phone_in_talk_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="Number-tollfree"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="1075" />
                 </LinearLayout>
 
 
-
-
-
-
-
-
-
-
             </LinearLayout>
-
-
 
 
         </LinearLayout>
