@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
+import com.example.torjan.Hospitals_Dashboards.getMedicalcollegeBeds;
 import com.example.torjan.Notification_Advisiroy.getAdvisory;
 import com.example.torjan.Webservice.AppAPI;
 import com.example.torjan.Webservice.BaseURL;
@@ -67,15 +68,15 @@ public class phone_activity extends AppCompatActivity {
 
     public static void load() {
         AppAPI appAPI = BaseURL.getAPIService();
-        Call<getHospitalbeds> call = appAPI.getHospitalbeds();
-        call.enqueue(new Callback<getHospitalbeds>() {
+        Call<getMedicalcollegeBeds> call = appAPI.getMedicalcollegeBeds();
+        call.enqueue(new Callback<getMedicalcollegeBeds>() {
             @Override
-            public void onResponse(Call<getHospitalbeds> call, Response<getHospitalbeds> response) {
-                Log.e("safadsfsda", response.body().getData().getRegional().get(5).getState());
+            public void onResponse(Call<getMedicalcollegeBeds> call, Response<getMedicalcollegeBeds> response) {
+                Log.i("dsakjdn",response.body().getData().getMedicalColleges().get(15).getState());
             }
 
             @Override
-            public void onFailure(Call<getHospitalbeds> call, Throwable t) {
+            public void onFailure(Call<getMedicalcollegeBeds> call, Throwable t) {
 
             }
         });

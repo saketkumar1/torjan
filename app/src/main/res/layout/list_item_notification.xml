@@ -1,60 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#e9ecf2"
     android:id="@+id/NotificationParent">
 
 
-    <TextView
-        android:id="@+id/txtTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:text="Revised guidelines for International Arrivals"
-        android:textColor="#042e2c"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/fresca"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/pdf1" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDate"
-            android:layout_marginStart="10dp"
-            android:text="02.08.2020"
-            android:textStyle="italic"
-            />
+            android:layout_weight="6"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtPDF"
-            android:text="PDF"
-            android:textColor="#ff1212"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
-            />
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/fresca"
+                android:text="Revised guidelines for International Arrivals"
+                android:textColor="#030909"
+                android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="02.08.2020"
+                android:textStyle="italic" />
 
-    </RelativeLayout>
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#887F7F"
+                android:fadingEdge="vertical"
+                android:paddingBottom="5dp" />
+        </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#4f545e"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        />
+    </LinearLayout>
 
 
 </LinearLayout>
