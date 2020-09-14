@@ -6,18 +6,22 @@ import androidx.cardview.widget.CardView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +43,8 @@ public class stat extends AppCompatActivity {
     int statedata, agedata, genderdata;
     private TextView start, end;
     private CardView c1, c2;
+    FloatingActionButton searchbutton;
+    int graphcounter;
     String datedata;
     String[] genders = {"male", "female", "N/a"};
     String[] gap = {"0-9", "10-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70 & above"};
@@ -62,6 +68,7 @@ public class stat extends AppCompatActivity {
         end = findViewById(R.id.end_date);
         c1 = findViewById(R.id.card_start);
         c2 = findViewById(R.id.card_end);
+        searchbutton=findViewById(R.id.searchGraph);
 
 
         c1.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +82,7 @@ public class stat extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(stat.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month++;
                         if (dayOfMonth > 10)
                             datedata = dayOfMonth + "/" + month + "/" + year;
                         else
@@ -140,16 +148,40 @@ public class stat extends AppCompatActivity {
 
 
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
 
+        searchbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference();
+                Query dataquery = myRef.orderByChild("Value").equalTo(state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
+                dataquery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.e("jdshadjkhbsjkdh",state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
+                        Log.e("jhdkjhdksjdhk",""+snapshot.getChildrenCount());
+
+                        GraphView graph = (GraphView) findViewById(R.id.graph);
+                        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                                new DataPoint(graphcounter, snapshot.getChildrenCount()),
+                                new DataPoint(2,5),
+                                new DataPoint(3,5),
+                                new DataPoint(4,5),
+                                new DataPoint(5,5),
+                                new DataPoint(6,5),
+
+                        });
+                        graph.addSeries(series);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
 
 
 
@@ -162,21 +194,7 @@ public class stat extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 agedata = position;
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference();
-                Query dataquery = myRef.orderByChild("Value").equalTo(state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
-                dataquery.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Log.e("jashdjuasasjukd", "" + snapshot.getChildrenCount());
-                        Log.e("dasdadsds", state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
             }
 
             @Override
@@ -212,4 +230,5 @@ public class stat extends AppCompatActivity {
         });
 
     }
+
 }
