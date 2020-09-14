@@ -47,7 +47,7 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
         switch (position%5){
 
             case 0:
-                holder.relativeLayout.setBackgroundColor(Color.parseColor("#FFFAE41F"));
+                holder.relativeLayout.setBackgroundColor(Color.parseColor("#a1ff26"));
                 break;
 
             case 1:

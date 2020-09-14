@@ -54,13 +54,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State"
-                android:textSize="20sp"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toLeftOf="@+id/view1"
                 android:layout_marginRight="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toLeftOf="@+id/view1"
+                android:fontFamily="@font/droid_sans"
+                android:text="State"
+                android:textColor="#0e1406"
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="1dp"
@@ -74,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Andman Nicobar"
+                android:textColor="#0e1406"
                 android:id="@+id/txtStateNmaeColleges"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -96,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="City"
                 android:textSize="20sp"
+                android:textColor="#0e1406"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toLeftOf="@+id/view2"
                 android:layout_marginRight="7dp"
@@ -117,6 +118,7 @@
                 android:id="@+id/txtCities"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#0e1406"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toRightOf="@+id/view2"
                 android:layout_marginLeft="7dp"
@@ -136,6 +138,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ownership"
                 android:textSize="20sp"
+                android:textColor="#0e1406"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toLeftOf="@+id/view3"
                 android:layout_marginRight="7dp"
@@ -156,6 +159,7 @@
                 android:text="Govt."
                 android:id="@+id/txtOwnership"
                 android:textSize="20sp"
+                android:textColor="#0e1406"
                 android:textStyle="bold"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toRightOf="@+id/view3"
@@ -172,20 +176,21 @@
             >
 
             <TextView
+                android:id="@+id/txtAdmission"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admission"
-                android:textSize="20sp"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toLeftOf="@+id/view4"
                 android:layout_marginRight="7dp"
-                android:id="@+id/txtAdmission"
-                />
+                android:layout_toLeftOf="@+id/view4"
+                android:fontFamily="@font/droid_sans"
+                android:text="Admission"
+                android:textColor="#0e1406"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Capacity"
+                android:textColor="#0e1406"
                 android:textSize="20sp"
                 android:fontFamily="@font/droid_sans"
                 android:layout_alignStart="@+id/txtAdmission"
@@ -208,6 +213,7 @@
                 android:id="@+id/txtAdmissionCapicity"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#0e1406"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toRightOf="@+id/view4"
                 android:layout_marginLeft="7dp"
@@ -227,6 +233,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hospital Beds"
                 android:textSize="20sp"
+                android:textColor="#0e1406"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toLeftOf="@+id/view5"
                 android:layout_marginRight="7dp"
@@ -250,6 +257,7 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/droid_sans"
                 android:layout_toRightOf="@+id/view5"
+                android:textColor="#0e1406"
                 android:layout_marginLeft="7dp"
                 android:layout_centerVertical="true"
                 />

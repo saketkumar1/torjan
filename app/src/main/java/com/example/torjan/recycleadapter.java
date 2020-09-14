@@ -33,6 +33,8 @@ public class recycleadapter extends RecyclerView.Adapter<recycleadapter.ViewHold
         holder.sname.setText(data.get(position).getState_name().toString());
         holder.snumber.setText(data.get(position).getState_no().toString());
 
+
+
     }
 
 
