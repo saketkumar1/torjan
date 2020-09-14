@@ -6,11 +6,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
+import com.example.torjan.Hospitals_Dashboards.regional;
+import com.example.torjan.Notification_Advisiroy.getAdvisory;
+import com.example.torjan.Webservice.AppAPI;
+import com.example.torjan.Webservice.BaseURL;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +33,8 @@ public class HospitalFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private HospitalAdapter adapter;
-    private ArrayList<HospitalModel> datalist;
+    private ArrayList<regional> datalist;
+    private TextView txtTotalHospital,txtTotalBeds,txtRuralHospital,txtRuralBeds,txtUrbanHospital,txtUrbanBeds;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,29 +82,75 @@ public class HospitalFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.fragment_hospital, container, false);
+
+        txtTotalHospital=view.findViewById(R.id.txtTotalHospital);
+        txtTotalBeds=view.findViewById(R.id.txtTotalbeds);
+        txtRuralBeds=view.findViewById(R.id.txtTotalRuralbeds);
+        txtUrbanBeds=view.findViewById(R.id.txtTotalUrbanbeds);
+        txtRuralHospital=view.findViewById(R.id.txtTotalRuralHospital);
+        txtUrbanHospital=view.findViewById(R.id.txtTotalUrbanHospital);
+
         recyclerView=view.findViewById(R.id.recyclerViewStates);
-        datalist=new ArrayList<>();
 
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
-        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist=new ArrayList<>();
+//
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
+//        datalist.add(new HospitalModel("Bihar","","","","","","",""));
 
 
 
-        adapter=new HospitalAdapter(getActivity());
-        adapter.setListStateWise(datalist);
+//        adapter=new HospitalAdapter(getActivity());
+//        adapter.setListStateWise(datalist);
 
-        recyclerView.setAdapter(adapter);
+        //recyclerView.setAdapter(adapter);
+
+        loadHospital();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return view;
 
     }
+
+
+
+    public void loadHospital(){
+        AppAPI appAPI= BaseURL.getAPIService();
+        Call<getHospitalbeds> call=appAPI.getHospitalbeds();
+        call.enqueue(new Callback<getHospitalbeds>() {
+            @Override
+            public void onResponse(Call<getHospitalbeds> call, Response<getHospitalbeds> response) {
+
+                txtTotalHospital.setText(response.body().getData().getSummary().getTotoalBeds());
+                txtTotalBeds.setText((response.body().getData().getSummary().getTotoalBeds()));
+                txtRuralBeds.setText(response.body().getData().getSummary().getRuralBeds());
+                txtUrbanBeds.setText(response.body().getData().getSummary().getUrbanBeds());
+                txtRuralHospital.setText(response.body().getData().getSummary().getRuralHospitals());
+                txtUrbanHospital.setText(response.body().getData().getSummary().getUrbanHospitals());
+
+                datalist=new ArrayList<>();
+                datalist=response.body().getData().getRegional();
+                if(datalist.size()>0) {
+                    adapter = new HospitalAdapter(getActivity());
+                    adapter.setListStateWise(datalist);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    Log.i("djasjhfdaskjdhask", "" + datalist.size());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<getHospitalbeds> call, Throwable t) {
+                Log.e("error",t.getCause().toString());
+            }
+        });
+    }
+
 }

@@ -1,320 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="20dp"
+    android:padding="15dp">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bihar"
-        android:id="@+id/txtStateName"
-        android:textSize="35dp"
-        android:fontFamily="@font/droid_sans"
-        android:textColor="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        />
-
-</RelativeLayout>
-
-
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="7dp"
-        android:background="@color/colorPrimary"
-        />
-
-
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="26dp"
-       android:layout_marginTop="7dp"
-       >
-
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Total Hospital"
-           android:textSize="20sp"
-           android:fontFamily="@font/droid_sans"
-           android:layout_toLeftOf="@+id/view1"
-           android:layout_marginRight="7dp"
-           android:layout_centerVertical="true"
-           />
-
-       <View
-           android:layout_width="1dp"
-           android:layout_height="23dp"
-           android:id="@+id/view1"
-           android:layout_centerHorizontal="true"
-           android:background="@color/colorPrimary"
-           />
-
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="33"
-           android:id="@+id/txtTotalHospitalStates"
-           android:textSize="20sp"
-           android:textStyle="bold"
-           android:fontFamily="@font/droid_sans"
-           android:layout_toRightOf="@+id/view1"
-           android:layout_marginLeft="7dp"
-           android:layout_centerVertical="true"
-           />
-
-   </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:padding="20dp"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Beds"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view2"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bihar"
+                android:id="@+id/txtStateName"
+                android:textSize="35dp"
+                android:fontFamily="@font/droid_sans"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view2"
-            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="7dp"
             android:background="@color/colorPrimary"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33"
-            android:id="@+id/txtTotalBedsStates"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view2"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Hospital"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view1"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rural Hospital"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view3"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view1"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view3"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtTotalHospitalStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view1"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33"
-            android:id="@+id/txtTotalRuralHospitalStates"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view3"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Beds"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view2"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Urban Hospital"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view4"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view2"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view4"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtTotalBedsStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view2"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33"
-            android:id="@+id/txtUrbanHospitalStates"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view4"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rural Hospital"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view3"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rural Beds"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view5"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view3"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view5"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtTotalRuralHospitalStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view3"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33556"
-            android:id="@+id/txtRuralBedsStates"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view5"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urban Hospital"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view4"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Urban Beds"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view6"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view4"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view6"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtUrbanHospitalStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view4"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33"
-            android:id="@+id/txtUrbanBedsStates"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view6"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="7dp"
-        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rural Beds"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view5"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Updated"
-            android:textSize="20sp"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toLeftOf="@+id/view7"
-            android:layout_marginRight="7dp"
-            android:layout_centerVertical="true"
-            />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view5"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="23dp"
-            android:id="@+id/view7"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33556"
+                android:id="@+id/txtRuralBedsStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view5"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="33"
-            android:id="@+id/txtLastUpdatesHostipal"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/droid_sans"
-            android:layout_toRightOf="@+id/view7"
-            android:layout_marginLeft="7dp"
-            android:layout_centerVertical="true"
-            />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urban Beds"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view6"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view6"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtUrbanBedsStates"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view6"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Updated"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view7"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view7"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:id="@+id/txtLastUpdatesHostipal"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view7"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

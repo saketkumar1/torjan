@@ -6,39 +6,37 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.torjan.Hospitals_Dashboards.regional;
+import com.example.torjan.Hospitals_Dashboards.medicalColleges;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
-public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHolder>{
+public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHolder>{
 
-    private ArrayList<regional> listStateWise;
+    private ArrayList<medicalColleges> listCollegeWise;
     private Context context;
 
-    public HospitalAdapter(Context context) {
-
+    public CollegesAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.list_states,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.list_colleges,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
-        holder.txtstates.setText(listStateWise.get(position).getState());
+        holder.txtCollegeName.setText(listCollegeWise.get(position).getName());
 
         switch (position%5){
 
@@ -71,11 +69,10 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
-             CustomDialog customDialog=new CustomDialog((Activity) context,listStateWise.get(position).getState(),listStateWise.get(position).getTotalHospitals()
-                     ,listStateWise.get(position).getTotalBeds(), listStateWise.get(position).getRuralHospitals(),listStateWise.get(position).getUrbanHospitals()
-             ,listStateWise.get(position).getRuralBeds(),listStateWise.get(position).getUrbanBeds(),listStateWise.get(position).getAsOn());
+                CustomDialogColleges customDialog=new CustomDialogColleges((Activity) context,listCollegeWise.get(position).getState(),listCollegeWise.get(position).getName(),listCollegeWise.get(position).getCity()
+                ,listCollegeWise.get(position).getOwnership(),listCollegeWise.get(position).getAdmissionCapacity(),listCollegeWise.get(position).getHospitalBeds());
 
-             customDialog.startLoading();
+                customDialog.startLoading();
 
             }
         });
@@ -84,25 +81,27 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return listStateWise.size();
+        return listCollegeWise.size();
     }
 
-    public void setListStateWise(ArrayList<regional> listStateWise) {
-        this.listStateWise = listStateWise;
+    public void setListCollegeWise(ArrayList<medicalColleges> listCollegeWise) {
+        this.listCollegeWise = listCollegeWise;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
 
         private MaterialCardView parent;
-        private TextView txtstates;
+        private TextView txtCollegeName;
         private RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            parent=itemView.findViewById(R.id.parent);
-            txtstates=itemView.findViewById(R.id.txtStates);
-            relativeLayout=itemView.findViewById(R.id.relLayoutStates);
+            parent=itemView.findViewById(R.id.parentColleges);
+            txtCollegeName=itemView.findViewById(R.id.txtMedicalCollegeName);
+            relativeLayout=itemView.findViewById(R.id.relLayoutColleges);
+
         }
     }
 

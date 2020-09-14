@@ -72,6 +72,8 @@ public class dashboard_activity extends AppCompatActivity {
 //        hospitalFragment=new HospitalFragment();
 //
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         if(savedInstanceState==null){
 
             chipNavigation.setItemSelected(R.id.hospitalicon,true);
@@ -124,6 +126,22 @@ public class dashboard_activity extends AppCompatActivity {
 //        pager.setAdapter(viewPagerAdapter);
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case android.R.id.home:
+                onBackPressed();
+                break;
+
+            default:
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 //    private class ViewPagerAdapter extends FragmentPagerAdapter {

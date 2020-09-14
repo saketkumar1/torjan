@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".stat"></activity>
-        <activity android:name=".dashboard_activity"
-            android:theme="@style/DashBoardTheme"/>
+        <activity android:name=".dashboard_activity" />
         <activity android:name=".notification1" />
         <activity android:name=".phone_activity">
             <intent-filter>
