@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.torjan.Notification_Advisiroy.getAdvisory;
 import com.example.torjan.Webservice.AppAPI;
@@ -26,12 +28,14 @@ public class notification1 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotificationAdapter adapter;
     private ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications;
+    ProgressBar progressBar;
 // test1
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-
+        progressBar=findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.VISIBLE);
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
         load();
 
@@ -92,6 +96,7 @@ public class notification1 extends AppCompatActivity {
             @Override
             public void onResponse(Call<getAdvisory> call, Response<getAdvisory> response) {
                 notifications=new ArrayList<>();
+                progressBar.setVisibility(View.INVISIBLE);
                 notifications=response.body().getData().getNotification();
                 if(notifications.size()>0) {
                     adapter = new NotificationAdapter(notification1.this, notifications);

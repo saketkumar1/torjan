@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -59,6 +60,7 @@ public class phone_activity extends AppCompatActivity {
     String gmailvalue;
     ImageView media;
     String mediavalue;
+    ProgressBar progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,9 @@ public class phone_activity extends AppCompatActivity {
         twitter=findViewById(R.id.TwitterImageVIew);
         gmail=findViewById(R.id.gmailImageVIew);
         media=findViewById(R.id.mediaImageView);
-        load();
+        progressbar=findViewById(R.id.progressbar);
+        progressbar.setVisibility(View.VISIBLE);
+            load();
 
         callTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,6 +186,7 @@ public class phone_activity extends AppCompatActivity {
                     arrayList.add(list.get(item).getLoc());
                     number.add((list.get(item).getNumber()));
                 }
+                progressbar.setVisibility(View.GONE);
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(phone_activity.this,R.layout.state,arrayList);
                 spinner.setAdapter(adapter);
                 title = new ArrayList<>();
