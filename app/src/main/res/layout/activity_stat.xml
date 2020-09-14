@@ -20,7 +20,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_nav">
 
 
         <LinearLayout
@@ -286,11 +287,13 @@
                 android:textStyle="bold" />
 
 
+
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
                 android:layout_height="200dip"
                 android:layout_margin="15dp"
-                android:id="@+id/graph" />
+                android:id="@+id/graph"
+                />
 
 
 
