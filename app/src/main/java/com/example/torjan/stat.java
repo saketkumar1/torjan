@@ -7,8 +7,10 @@ import androidx.cardview.widget.CardView;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,6 +18,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +33,14 @@ public class stat extends AppCompatActivity {
 
 
     private Spinner states,gender,age;
+    int statedata, agedata,genderdata;
     private TextView start,end;
     private CardView c1,c2;
+    String datedata;
+    String[] genders={"male","female","N/a"};
+    String[] gap={"0-9","10-19","20-29","30-39","40-49","50-59","60-69","70 & above"};
+    String[] state={"Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhatisgarh","Chandigarh","Delhi","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalya","Mizoram","Nagaland","Odisha","Punjab","Rajsthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"};
+
     private int m1,d1,y1,m2,d2,y2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +72,11 @@ public class stat extends AppCompatActivity {
                 DatePickerDialog datePickerDialog=new DatePickerDialog(stat.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        start.setText(month+"/"+dayOfMonth+"/"+year);
+                        if(dayOfMonth>10)
+                        datedata=dayOfMonth+"/"+month+"/"+year;
+                        else
+                            datedata="0"+dayOfMonth+"/"+month+"/"+year;
+                        start.setText(datedata);
                     }
                 },y1,m1,d1);
                 datePickerDialog.show();
@@ -85,43 +103,66 @@ public class stat extends AppCompatActivity {
 
             }
         });
-
-
-
-        String[] state={"delhi","up","mp","bihar"};
         ArrayList<String> arrayList=new ArrayList<>(Arrays.asList(state));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.state,arrayList);
         states.setAdapter(arrayAdapter);
+        states.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                statedata=position;
+            }
 
-        String[] genders={"Male","Female","N/a"};
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         ArrayList<String> arrayList1=new ArrayList<>(Arrays.asList(genders));
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(this,R.layout.state,arrayList1);
         gender.setAdapter(arrayAdapter1);
+        gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                genderdata=position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
-        String[] gap={"0-9","10-19","20-29","30-39","40-49"};
         ArrayList<String> arrayList2=new ArrayList<>(Arrays.asList(gap));
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<>(this,R.layout.state,arrayList2);
         age.setAdapter(arrayAdapter2);
+        age.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                agedata=position;
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference();
+                Query dataquery=myRef.orderByChild("Value").equalTo(state[statedata]+ " "+datedata+" "+genders[genderdata]+" "+agedata+" "+ "Deceased");
+                dataquery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.e("jashdjuasasjukd",""+snapshot.getChildrenCount());
+                        Log.e("dasdadsds",state[statedata]+ " "+datedata+" "+genders[genderdata]+" "+agedata+" "+ "Deceased");
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
+                    }
+                });
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+        });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -148,5 +189,6 @@ public class stat extends AppCompatActivity {
                 return false;
             }
         });
+
     }
-}
+    }
