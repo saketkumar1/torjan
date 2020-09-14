@@ -40,7 +40,7 @@
                     <Spinner
                         android:id="@+id/state_spinner"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="44dp"
                         android:layout_marginLeft="80dp"
                         android:layout_weight="1"
                         android:background="@drawable/round_edge" />
@@ -70,17 +70,62 @@
                     android:textStyle="bold" />
 
 
-                <TextView
-                    android:id="@+id/callTextView"
+<!--                <TextView-->
+<!--                    android:id="@+id/callTextView"-->
+<!--                    android:layout_width="130dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_margin="20sp"-->
+<!--                    android:background="@drawable/call_edge"-->
+<!--                    android:drawableLeft="@drawable/ic_baseline_local_phone_24"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Call now"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textStyle="bold" />-->
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="130dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="20sp"
-                    android:background="@drawable/call_edge"
-                    android:drawableLeft="@drawable/ic_baseline_local_phone_24"
-                    android:gravity="center"
-                    android:text="Call now"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    android:layout_height="44dp"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="22dp"
+                    android:elevation="15dp"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/callTextView"
+                        android:background="#FF1744"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Call Now"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:layout_marginEnd="15dp"
+                            android:fontFamily="@font/droid_sans"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/ic_call_icon"
+                            />
+
+
+
+                    </RelativeLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
@@ -131,7 +176,7 @@
 
                     <ImageView
                         android:layout_width="90dp"
-                        android:layout_height="100dp"
+                        android:layout_height="95dp"
                         android:src="@drawable/handwashing" />
 
                     <TextView
@@ -147,13 +192,16 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="90dp"
-                        android:layout_height="100dp"
+                        android:layout_height="90dp"
                         android:src="@drawable/facemask" />
 
                     <TextView

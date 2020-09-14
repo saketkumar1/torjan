@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="20dp"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:padding="20dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bihar Andaman  Nicobar Islands Insitute of Medical Sciences, Port Blair"
+                android:id="@+id/txtCollegeName"
+                android:textSize="22dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/droid_sans"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/colorPrimary"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view1"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view1"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Andman Nicobar"
+                android:id="@+id/txtStateNmaeColleges"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view1"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view2"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view2"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="port blair"
+                android:id="@+id/txtCities"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view2"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ownership"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view3"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view3"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Govt."
+                android:id="@+id/txtOwnership"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view3"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admission"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view4"
+                android:layout_marginRight="7dp"
+                android:id="@+id/txtAdmission"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capacity"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_alignStart="@+id/txtAdmission"
+
+                android:layout_below="@+id/txtAdmission"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="48dp"
+                android:id="@+id/view4"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150"
+                android:id="@+id/txtAdmissionCapicity"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view4"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="7dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hospital Beds"
+                android:textSize="20sp"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toLeftOf="@+id/view5"
+                android:layout_marginRight="7dp"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="23dp"
+                android:id="@+id/view5"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:id="@+id/txtHospitalBeds"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/droid_sans"
+                android:layout_toRightOf="@+id/view5"
+                android:layout_marginLeft="7dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

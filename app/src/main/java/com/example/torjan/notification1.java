@@ -89,6 +89,7 @@ public class notification1 extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     public void load(){
         AppAPI appAPI= BaseURL.getAPIService();
         Call<getAdvisory> call=appAPI.getAdvisory();
