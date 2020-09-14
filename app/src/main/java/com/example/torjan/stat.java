@@ -72,7 +72,7 @@ public class stat extends AppCompatActivity {
                 m1 = cal.get(Calendar.MONTH);
                 d1 = cal.get(Calendar.DATE);
                 y1 = cal.get(Calendar.YEAR);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(stat.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(stat.this, android.R.style.Theme_DeviceDefault_Dialog_NoActionBar, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         if (dayOfMonth > 10)
