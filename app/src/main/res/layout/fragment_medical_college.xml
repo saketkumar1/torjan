@@ -16,12 +16,27 @@
 
         >
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recyclerViewColleges"
-            android:padding="5dp"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchViewMedicalColleges"
+                android:background="@color/colorAccent"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewColleges"
+                android:padding="5dp"
+                />
+
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

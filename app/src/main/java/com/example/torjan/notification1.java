@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,16 +29,15 @@ public class notification1 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotificationAdapter adapter;
     private ArrayList<com.example.torjan.Notification_Advisiroy.notification> notifications;
-    ProgressBar progressBar;
+    private ProgressDialog progressDialog;
 // test1
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        progressBar=findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.VISIBLE);
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
-        load();
+
 
         bottomNavigationView.setSelectedItemId(R.id.navigation_notification);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,6 +72,13 @@ public class notification1 extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        progressDialog=new ProgressDialog(notification1.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
+        load();
+
     }
 
     @Override
@@ -97,7 +104,9 @@ public class notification1 extends AppCompatActivity {
             @Override
             public void onResponse(Call<getAdvisory> call, Response<getAdvisory> response) {
                 notifications=new ArrayList<>();
-                progressBar.setVisibility(View.INVISIBLE);
+
+                progressDialog.dismiss();
+
                 notifications=response.body().getData().getNotification();
                 if(notifications.size()>0) {
                     adapter = new NotificationAdapter(notification1.this, notifications);
@@ -110,6 +119,7 @@ public class notification1 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<getAdvisory> call, Throwable t) {
+                progressDialog.dismiss();
                 Log.e("error",t.getCause().toString());
             }
         });

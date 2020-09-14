@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,10 +19,12 @@ import com.example.torjan.Hospitals_Dashboards.regional;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHolder>{
+public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHolder> implements Filterable {
 
     private ArrayList<regional> listStateWise;
+    private ArrayList<regional> listStateWiseFull;
     private Context context;
 
     public HospitalAdapter(Context context) {
@@ -89,7 +93,51 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
 
     public void setListStateWise(ArrayList<regional> listStateWise) {
         this.listStateWise = listStateWise;
+        this.listStateWiseFull = new ArrayList<>(listStateWise);
     }
+
+    @Override
+    public Filter getFilter() {
+
+        return listFilter;
+    }
+
+    private Filter listFilter=new Filter(){
+
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<regional> filteredList=new ArrayList<>();
+
+            if(constraint==null || constraint.length()==0){
+                filteredList.addAll(listStateWiseFull);
+            }else{
+                String filterPattern=constraint.toString().toLowerCase().trim();
+
+                for(regional data:listStateWiseFull){
+
+                    if(data.getState().toLowerCase().contains(filterPattern)){
+                        filteredList.add(data);
+                    }
+
+                }
+            }
+
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            listStateWise.clear();
+            listStateWise.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,13 +15,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.torjan.Hospitals_Dashboards.medicalColleges;
+import com.example.torjan.Hospitals_Dashboards.regional;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHolder>{
+public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHolder> implements Filterable {
 
     private ArrayList<medicalColleges> listCollegeWise;
+    private ArrayList<medicalColleges> listCollegeWiseFull;
+
     private Context context;
 
     public CollegesAdapter(Context context) {
@@ -86,7 +92,50 @@ public class CollegesAdapter extends RecyclerView.Adapter<CollegesAdapter.ViewHo
 
     public void setListCollegeWise(ArrayList<medicalColleges> listCollegeWise) {
         this.listCollegeWise = listCollegeWise;
+        this.listCollegeWiseFull=new ArrayList<>(listCollegeWise);
     }
+
+    @Override
+    public Filter getFilter() {
+        return listFilter;
+    }
+
+    private Filter listFilter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<medicalColleges> filteredList=new ArrayList<>();
+
+            if(constraint==null || constraint.length()==0){
+                filteredList.addAll(listCollegeWiseFull);
+            }else{
+                String filterPattern=constraint.toString().toLowerCase().trim();
+
+                for(medicalColleges data:listCollegeWiseFull){
+
+                    if(data.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(data);
+                    }
+
+                }
+            }
+
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            listCollegeWise.clear();
+            listCollegeWise.addAll((List)results.values);
+            notifyDataSetChanged();
+
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 

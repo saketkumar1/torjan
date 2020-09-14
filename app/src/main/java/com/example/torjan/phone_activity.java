@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -64,7 +65,7 @@ public class phone_activity extends AppCompatActivity {
     String gmailvalue;
     ImageView media;
     String mediavalue;
-    ProgressBar progressbar;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +85,12 @@ public class phone_activity extends AppCompatActivity {
         twitter=findViewById(R.id.TwitterImageVIew);
         gmail=findViewById(R.id.gmailImageVIew);
         media=findViewById(R.id.mediaImageView);
-        progressbar=findViewById(R.id.progressbar);
-        progressbar.setVisibility(View.VISIBLE);
+
+        progressDialog=new ProgressDialog(phone_activity.this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
             load();
 
         callTextView.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +181,8 @@ public class phone_activity extends AppCompatActivity {
         call.enqueue(new Callback<getContacts>() {
             @Override
             public void onResponse(Call<getContacts> call, Response<getContacts> response) {
+
+                progressDialog.dismiss();
                 list=new ArrayList<>();
                 list=response.body().getData().getContacts().getRegional();
                 facebbokvalue=response.body().getData().getContacts().getPrimary().getFacebook();
@@ -190,7 +197,6 @@ public class phone_activity extends AppCompatActivity {
                     arrayList.add(list.get(item).getLoc());
                     number.add((list.get(item).getNumber()));
                 }
-                progressbar.setVisibility(View.GONE);
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(phone_activity.this,R.layout.state,arrayList);
                 spinner.setAdapter(adapter);
                 title = new ArrayList<>();
@@ -222,6 +228,8 @@ public class phone_activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<getContacts> call, Throwable t) {
+
+                progressDialog.dismiss();
 
             }
         });

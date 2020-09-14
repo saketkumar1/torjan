@@ -1,5 +1,6 @@
 package com.example.torjan;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
@@ -35,6 +37,8 @@ public class HospitalFragment extends Fragment {
     private HospitalAdapter adapter;
     private ArrayList<regional> datalist;
     private TextView txtTotalHospital,txtTotalBeds,txtRuralHospital,txtRuralBeds,txtUrbanHospital,txtUrbanBeds;
+    private SearchView searchView;
+    private ProgressDialog progressDialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -91,6 +95,12 @@ public class HospitalFragment extends Fragment {
         txtUrbanHospital=view.findViewById(R.id.txtTotalUrbanHospital);
 
         recyclerView=view.findViewById(R.id.recyclerViewStates);
+        searchView=view.findViewById(R.id.searchViewHospital);
+
+        progressDialog=new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
 
 //        datalist=new ArrayList<>();
 //
@@ -115,6 +125,20 @@ public class HospitalFragment extends Fragment {
         loadHospital();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
         return view;
 
     }
@@ -135,6 +159,8 @@ public class HospitalFragment extends Fragment {
                 txtRuralHospital.setText(response.body().getData().getSummary().getRuralHospitals());
                 txtUrbanHospital.setText(response.body().getData().getSummary().getUrbanHospitals());
 
+                progressDialog.dismiss();
+
                 datalist=new ArrayList<>();
                 datalist=response.body().getData().getRegional();
                 if(datalist.size()>0) {
@@ -148,6 +174,7 @@ public class HospitalFragment extends Fragment {
 
             @Override
             public void onFailure(Call<getHospitalbeds> call, Throwable t) {
+                progressDialog.dismiss();
                 Log.e("error",t.getCause().toString());
             }
         });

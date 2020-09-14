@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HospitalFragment">
 
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#94ebff"
+                        android:background="#ff0f0f"
                         >
 
                         <TextView
@@ -45,19 +46,20 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/droid_sans"
                             android:text="Total"
-                            android:layout_marginLeft="7dp"
+
                             android:layout_marginTop="5dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
+                            android:layout_centerHorizontal="true"
                             android:textSize="15dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hospitals"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/txtTotal5"
                             android:id="@+id/txtHospital5"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             android:fontFamily="@font/droid_sans"
                             />
 
@@ -68,8 +70,10 @@
                             android:layout_alignParentBottom="true"
                             android:text=""
                             android:textSize="25dp"
-                            android:layout_marginLeft="7dp"
-                            android:textColor="@color/colorPrimary"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -95,7 +99,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#94ebff"
+                        android:background="#ff0f0f"
                         >
 
                         <TextView
@@ -104,21 +108,21 @@
                             android:text="Total"
                             android:fontFamily="@font/droid_sans"
                             android:textSize="15dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="5dp"
                             android:id="@+id/txtTotal6"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Beds"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:fontFamily="@font/droid_sans"
                             android:layout_below="@+id/txtTotal6"
                             android:id="@+id/txtBeds6"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             />
 
                         <TextView
@@ -128,8 +132,10 @@
                             android:layout_alignParentBottom="true"
                             android:text=""
                             android:textSize="25dp"
-                            android:layout_marginLeft="7dp"
-                            android:textColor="@color/colorPrimary"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -156,7 +162,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#ff96f5"
+                        android:background="#a100ba"
                         >
 
                         <TextView
@@ -165,9 +171,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/droid_sans"
                             android:text="Rural"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             android:textSize="15dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="5dp"
                             />
 
@@ -177,9 +183,9 @@
                             android:text="Hospitals"
                             android:layout_below="@+id/txtRural1"
                             android:id="@+id/txtHospital1"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             android:fontFamily="@font/droid_sans"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             />
 
                         <TextView
@@ -188,9 +194,11 @@
                             android:id="@+id/txtTotalRuralHospital"
                             android:layout_alignParentBottom="true"
                             android:text=""
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:textSize="25dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -216,30 +224,30 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#ff96f5"
+                        android:background="#a100ba"
                         >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rural"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/droid_sans"
                             android:textSize="15dp"
                             android:id="@+id/txtRural2"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Beds"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:fontFamily="@font/droid_sans"
                             android:layout_below="@+id/txtRural2"
                             android:id="@+id/txtBeds2"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             />
 
                         <TextView
@@ -248,9 +256,11 @@
                             android:id="@+id/txtTotalRuralbeds"
                             android:layout_alignParentBottom="true"
                             android:text=""
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:textSize="25dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -277,7 +287,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#af8bfc"
+                        android:background="#930fff"
                         >
 
                         <TextView
@@ -286,19 +296,19 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/droid_sans"
                             android:text="Urban"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="5dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             android:textSize="15dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Hospitals"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_below="@+id/txtUrban3"
                             android:id="@+id/txtHospital3"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             android:fontFamily="@font/droid_sans"
                             />
 
@@ -308,9 +318,11 @@
                             android:id="@+id/txtTotalUrbanHospital"
                             android:layout_alignParentBottom="true"
                             android:text=""
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:textSize="25dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -336,7 +348,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#af8bfc"
+                        android:background="#930fff"
                         >
 
                         <TextView
@@ -346,9 +358,9 @@
                             android:fontFamily="@font/droid_sans"
                             android:textSize="15dp"
                             android:id="@+id/txtUrban4"
-                            android:layout_marginLeft="7dp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="5dp"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="#fff"
                             />
 
                         <TextView
@@ -358,8 +370,8 @@
                             android:fontFamily="@font/droid_sans"
                             android:layout_below="@+id/txtUrban4"
                             android:id="@+id/txtBeds4"
-                            android:layout_marginLeft="7dp"
-                            android:textColor="@color/colorPrimary"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#fff"
                             />
 
                         <TextView
@@ -369,8 +381,10 @@
                             android:layout_alignParentBottom="true"
                             android:text=""
                             android:textSize="25dp"
-                            android:layout_marginLeft="7dp"
-                            android:textColor="@color/colorPrimary"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/fresca"
+                            android:layout_marginBottom="5dp"
                             />
 
                     </RelativeLayout>
@@ -389,12 +403,29 @@
 
                 >
 
-                <androidx.recyclerview.widget.RecyclerView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/recyclerViewStates"
-                    android:padding="5dp"
-                    />
+                    android:orientation="vertical"
+                    >
+
+                    <SearchView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:id="@+id/searchViewHospital"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerViewStates"
+                        android:padding="5dp"
+                        />
+
+                </LinearLayout>
+
+
 
             </com.google.android.material.card.MaterialCardView>
 
