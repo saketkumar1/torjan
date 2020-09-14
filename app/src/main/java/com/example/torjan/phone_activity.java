@@ -236,5 +236,10 @@ public class phone_activity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+       finish();
+    }
+
 
 }
