@@ -3,12 +3,405 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HospitalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/line"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@+id/viewLine3"
+                    android:layout_marginRight="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#94ebff"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtTotal5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/droid_sans"
+                            android:text="Total"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hospitals"
+                            android:layout_marginLeft="7dp"
+                            android:layout_below="@+id/txtTotal5"
+                            android:id="@+id/txtHospital5"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/droid_sans"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalHospital"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:textSize="25dp"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/viewLine3"
+                    />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@+id/viewLine3"
+                    android:layout_marginLeft="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#94ebff"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total"
+                            android:fontFamily="@font/droid_sans"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/txtTotal6"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beds"
+                            android:layout_marginLeft="7dp"
+                            android:fontFamily="@font/droid_sans"
+                            android:layout_below="@+id/txtTotal6"
+                            android:id="@+id/txtBeds6"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalbeds"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:textSize="25dp"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@+id/viewLine1"
+                    android:layout_marginRight="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#ff96f5"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtRural1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/droid_sans"
+                            android:text="Rural"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hospitals"
+                            android:layout_below="@+id/txtRural1"
+                            android:id="@+id/txtHospital1"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/droid_sans"
+                            android:layout_marginLeft="7dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalRuralHospital"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:layout_marginLeft="7dp"
+                            android:textSize="25dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/viewLine1"
+                    />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@+id/viewLine1"
+                    android:layout_marginLeft="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#ff96f5"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rural"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/droid_sans"
+                            android:textSize="15dp"
+                            android:id="@+id/txtRural2"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beds"
+                            android:layout_marginLeft="7dp"
+                            android:fontFamily="@font/droid_sans"
+                            android:layout_below="@+id/txtRural2"
+                            android:id="@+id/txtBeds2"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalRuralbeds"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:layout_marginLeft="7dp"
+                            android:textSize="25dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toLeftOf="@+id/viewLine2"
+                    android:layout_marginRight="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#af8bfc"
+                        >
+
+                        <TextView
+                            android:id="@+id/txtUrban3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/droid_sans"
+                            android:text="Urban"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hospitals"
+                            android:layout_marginLeft="7dp"
+                            android:layout_below="@+id/txtUrban3"
+                            android:id="@+id/txtHospital3"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/droid_sans"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalUrbanHospital"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:layout_marginLeft="7dp"
+                            android:textSize="25dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/viewLine2"
+                    />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:layout_toRightOf="@+id/viewLine2"
+                    android:layout_marginLeft="7dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="15dp"
+                    android:layout_centerVertical="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#af8bfc"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Urban"
+                            android:fontFamily="@font/droid_sans"
+                            android:textSize="15dp"
+                            android:id="@+id/txtUrban4"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beds"
+                            android:fontFamily="@font/droid_sans"
+                            android:layout_below="@+id/txtUrban4"
+                            android:id="@+id/txtBeds4"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtTotalUrbanbeds"
+                            android:layout_alignParentBottom="true"
+                            android:text=""
+                            android:textSize="25dp"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="15dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal"
+
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recyclerViewStates"
+                    android:padding="5dp"
+                    />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
 
 </FrameLayout>

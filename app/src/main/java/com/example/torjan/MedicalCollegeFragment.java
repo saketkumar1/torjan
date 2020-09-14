@@ -3,10 +3,25 @@ package com.example.torjan;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
+import com.example.torjan.Hospitals_Dashboards.getMedicalcollegeBeds;
+import com.example.torjan.Hospitals_Dashboards.medicalColleges;
+import com.example.torjan.Webservice.AppAPI;
+import com.example.torjan.Webservice.BaseURL;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +29,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class MedicalCollegeFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private CollegesAdapter adapter;
+    private ArrayList<medicalColleges> datalist;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +78,54 @@ public class MedicalCollegeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medical_college, container, false);
+        View view=inflater.inflate(R.layout.fragment_medical_college, container, false);
+        recyclerView=view.findViewById(R.id.recyclerViewColleges);
+//        datalist=new ArrayList<>();
+//
+//        datalist.add(new CollegesModel("A & N Islands","Andaman & Nicobar Islands Insitute of Medical Sciences, Port Blair","port blair","govt","150","500"));
+//        datalist.add(new CollegesModel("","","","","",""));
+//        datalist.add(new CollegesModel("","","","","",""));
+//        datalist.add(new CollegesModel("","","","","",""));
+//        datalist.add(new CollegesModel("","","","","",""));
+//        datalist.add(new CollegesModel("","","","","",""));
+//        datalist.add(new CollegesModel("","","","","",""));
+
+
+//        adapter=new CollegesAdapter(getActivity());
+//        adapter.setListCollegeWise(datalist);
+//
+//        recyclerView.setAdapter(adapter);
+
+        loadMedicalColleges();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return view;
     }
+
+    public void loadMedicalColleges(){
+        AppAPI appAPI= BaseURL.getAPIService();
+        Call<getMedicalcollegeBeds> call=appAPI.getMedicalcollegeBeds();
+        call.enqueue(new Callback<getMedicalcollegeBeds>() {
+            @Override
+            public void onResponse(Call<getMedicalcollegeBeds> call, Response<getMedicalcollegeBeds> response) {
+
+                datalist=new ArrayList<>();
+                datalist=response.body().getData().getMedicalColleges();
+                if(datalist.size()>0) {
+                    adapter = new CollegesAdapter(getActivity());
+                    adapter.setListCollegeWise(datalist);
+                    recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    Log.i("djasjhfdaskjdhask", "" + datalist.size());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<getMedicalcollegeBeds> call, Throwable t) {
+                Log.e("error",t.getCause().toString());
+            }
+        });
+    }
+
 }
