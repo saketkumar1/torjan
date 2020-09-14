@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginRight="15dp"-->
+<!--        android:layout_marginBottom="80dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />-->
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:background="@color/colorPrimary">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:gravity="bottom"-->
+<!--                    android:text="Deceased Patients"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="25dp"-->
+<!--                    android:textStyle="bold" />-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="80dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text="States"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textColor="#9575CD"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="7dp">-->
+
+<!--                    <Spinner-->
+<!--                        android:id="@+id/state_spinner1"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content" />-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text="Age"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textColor="#9575CD"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="7dp">-->
+
+<!--                    <Spinner-->
+<!--                        android:id="@+id/age_spinner"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text="Gender"-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textColor="#9575CD"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="7dp">-->
+
+
+<!--                    <Spinner-->
+<!--                        android:id="@+id/gender_spinner"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+
+<!--            </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:orientation="horizontal">-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="right"-->
+<!--                android:text="DAte range"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textColor="#9575CD"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="15dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--                app:cardCornerRadius="15dp"-->
+<!--                app:cardElevation="7dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="17dp"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:id="@+id/start_date"-->
+<!--                    android:text="mm/dd/yy"/>-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:layout_gravity="right"-->
+<!--                    android:src="@drawable/ic_baseline_calendar_today_24"/>-->
+
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+
+<!--        </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:text=""-->
+<!--                    android:textAllCaps="true"-->
+<!--                    android:textColor="#9575CD"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:elevation="@dimen/cardview_compat_inset_shadow"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="7dp">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="17dp"-->
+<!--                        android:layout_margin="10dp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:id="@+id/end_date"-->
+<!--                        android:text="mm/dd/yy"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:layout_gravity="right"-->
+<!--                        android:src="@drawable/ic_baseline_calendar_today_24"/>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:text="Graph info"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textColor="#9575CD"-->
+<!--                android:textStyle="bold" />-->
+
+
+<!--            <com.jjoe64.graphview.GraphView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dip"-->
+<!--                android:layout_margin="15dp"-->
+<!--                android:id="@+id/graph" />-->
+
+
+
+<!--        </LinearLayout>-->
+
+<!--    </ScrollView>-->
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottommenu" />
+
+</RelativeLayout>
