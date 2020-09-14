@@ -14,7 +14,7 @@
         <activity android:name=".stat"
             android:label="@string/stat"></activity>
         <activity android:name=".dashboard_activity"
-            android:label="@string/dashboard_activity"/>
+            android:label="@string/dashboard_activity" />
         <activity android:name=".notification1"
             android:label="@string/notification1"/>
         <activity android:name=".phone_activity"

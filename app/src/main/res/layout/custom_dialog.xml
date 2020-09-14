@@ -53,13 +53,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Hospital"
-                android:textSize="20sp"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toLeftOf="@+id/view1"
                 android:layout_marginRight="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toLeftOf="@+id/view1"
+                android:fontFamily="@font/droid_sans"
+                android:text="Total Hospital"
+                android:textColor="#0e1406"
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="1dp"
@@ -79,6 +78,7 @@
                 android:fontFamily="@font/droid_sans"
                 android:layout_toRightOf="@+id/view1"
                 android:layout_marginLeft="7dp"
+                android:textColor="#0e1406"
                 android:layout_centerVertical="true"
                 />
 
@@ -99,6 +99,7 @@
                 android:layout_toLeftOf="@+id/view2"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -110,17 +111,16 @@
                 />
 
             <TextView
+                android:id="@+id/txtTotalBedsStates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33"
-                android:id="@+id/txtTotalBedsStates"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toRightOf="@+id/view2"
                 android:layout_marginLeft="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toRightOf="@+id/view2"
+                android:fontFamily="@font/droid_sans"
+                android:text="33"
+                android:textColor="#0e1406"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -139,6 +139,7 @@
                 android:layout_toLeftOf="@+id/view3"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -150,17 +151,16 @@
                 />
 
             <TextView
+                android:id="@+id/txtTotalRuralHospitalStates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33"
-                android:id="@+id/txtTotalRuralHospitalStates"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toRightOf="@+id/view3"
                 android:layout_marginLeft="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toRightOf="@+id/view3"
+                android:fontFamily="@font/droid_sans"
+                android:text="33"
+                android:textColor="#0e1406"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -179,6 +179,7 @@
                 android:layout_toLeftOf="@+id/view4"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -190,17 +191,16 @@
                 />
 
             <TextView
+                android:id="@+id/txtUrbanHospitalStates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33"
-                android:id="@+id/txtUrbanHospitalStates"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toRightOf="@+id/view4"
                 android:layout_marginLeft="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toRightOf="@+id/view4"
+                android:fontFamily="@font/droid_sans"
+                android:text="33"
+                android:textColor="#0e1406"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -219,6 +219,7 @@
                 android:layout_toLeftOf="@+id/view5"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -237,6 +238,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/droid_sans"
+                android:textColor="#0e1406"
                 android:layout_toRightOf="@+id/view5"
                 android:layout_marginLeft="7dp"
                 android:layout_centerVertical="true"
@@ -259,6 +261,7 @@
                 android:layout_toLeftOf="@+id/view6"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -270,17 +273,16 @@
                 />
 
             <TextView
+                android:id="@+id/txtUrbanBedsStates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33"
-                android:id="@+id/txtUrbanBedsStates"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/droid_sans"
-                android:layout_toRightOf="@+id/view6"
                 android:layout_marginLeft="7dp"
-                android:layout_centerVertical="true"
-                />
+                android:layout_toRightOf="@+id/view6"
+                android:fontFamily="@font/droid_sans"
+                android:text="33"
+                android:textColor="#0e1406"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -299,6 +301,7 @@
                 android:layout_toLeftOf="@+id/view7"
                 android:layout_marginRight="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
             <View
@@ -320,6 +323,7 @@
                 android:layout_toRightOf="@+id/view7"
                 android:layout_marginLeft="7dp"
                 android:layout_centerVertical="true"
+                android:textColor="#0e1406"
                 />
 
         </RelativeLayout>

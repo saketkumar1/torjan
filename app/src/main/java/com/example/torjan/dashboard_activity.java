@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,6 +35,9 @@ public class dashboard_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+      //  getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">"+getString(R.string.dashboard_activity)+"</font>"));
+
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.navigation_hospital_dashboard);
