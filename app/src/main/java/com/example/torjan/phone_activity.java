@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ public class phone_activity extends AppCompatActivity {
     ArrayList<word> title;
     private ArrayList<Regional> list;
     private ArrayList<String> number;
-    TextView callTextView;
+    RelativeLayout callTextView;
     Integer stateNo=-1;
     ArrayList<String> arrayList;
     recycleadapter recycleadapter1;
