@@ -44,7 +44,9 @@ public class stat extends AppCompatActivity {
     private TextView start, end;
     private CardView c1, c2;
     FloatingActionButton searchbutton;
-    int graphcounter;
+    int[] graphcounter;
+    long [] childcounter=new long[5];
+    int counter=0;
     String datedata;
     String[] genders = {"male", "female", "N/a"};
     String[] gap = {"0-9", "10-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70 & above"};
@@ -152,34 +154,34 @@ public class stat extends AppCompatActivity {
         searchbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference();
-                Query dataquery = myRef.orderByChild("Value").equalTo(state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
-                dataquery.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Log.e("jdshadjkhbsjkdh",state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
-                        Log.e("jhdkjhdksjdhk",""+snapshot.getChildrenCount());
+                if(childcounter!=null) {
+                    GraphView graph = (GraphView) findViewById(R.id.graph);
+                    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                            new DataPoint(2, 5),
+                            new DataPoint(3, 10),
+                            new DataPoint(4, 7),
+                            new DataPoint(5, 9),
+                    });
+                    graph.addSeries(series);
+                }
+                for(int i=0;i<4;i++) {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference();
+                    Query dataquery = myRef.orderByChild("Value").equalTo(state[statedata] + " " + datedata + " " + genders[genderdata] + " " + agedata + " " + "Deceased");
+                    dataquery.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            childcounter[counter]=snapshot.getChildrenCount();
 
-                        GraphView graph = (GraphView) findViewById(R.id.graph);
-                        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                                new DataPoint(graphcounter, snapshot.getChildrenCount()),
-                                new DataPoint(2,5),
-                                new DataPoint(3,5),
-                                new DataPoint(4,5),
-                                new DataPoint(5,5),
-                                new DataPoint(6,5),
 
-                        });
-                        graph.addSeries(series);
+                        }
 
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                        }
+                    });
+                }
             }
         });
 
