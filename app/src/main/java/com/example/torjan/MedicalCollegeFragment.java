@@ -1,5 +1,6 @@
 package com.example.torjan;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.torjan.Hospitals_Dashboards.getHospitalbeds;
 import com.example.torjan.Hospitals_Dashboards.getMedicalcollegeBeds;
@@ -33,6 +35,8 @@ public class MedicalCollegeFragment extends Fragment {
     private RecyclerView recyclerView;
     private CollegesAdapter adapter;
     private ArrayList<medicalColleges> datalist;
+    private SearchView searchView;
+    private ProgressDialog progressDialog;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +84,12 @@ public class MedicalCollegeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_medical_college, container, false);
         recyclerView=view.findViewById(R.id.recyclerViewColleges);
+        searchView=view.findViewById(R.id.searchViewMedicalColleges);
+
+        progressDialog=new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
 //        datalist=new ArrayList<>();
 //
 //        datalist.add(new CollegesModel("A & N Islands","Andaman & Nicobar Islands Insitute of Medical Sciences, Port Blair","port blair","govt","150","500"));
@@ -100,7 +110,22 @@ public class MedicalCollegeFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
         return view;
+        
     }
 
     public void loadMedicalColleges(){
@@ -109,6 +134,8 @@ public class MedicalCollegeFragment extends Fragment {
         call.enqueue(new Callback<getMedicalcollegeBeds>() {
             @Override
             public void onResponse(Call<getMedicalcollegeBeds> call, Response<getMedicalcollegeBeds> response) {
+
+                progressDialog.dismiss();
 
                 datalist=new ArrayList<>();
                 datalist=response.body().getData().getMedicalColleges();
@@ -123,6 +150,7 @@ public class MedicalCollegeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<getMedicalcollegeBeds> call, Throwable t) {
+                progressDialog.dismiss();
                 Log.e("error",t.getCause().toString());
             }
         });
