@@ -72,7 +72,6 @@ public class stat extends AppCompatActivity {
         c2 = findViewById(R.id.card_end);
         searchbutton=findViewById(R.id.searchGraph);
 
-
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +101,6 @@ public class stat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
-
                 m2 = cal.get(Calendar.MONTH);
                 d2 = cal.get(Calendar.DATE);
                 y2 = cal.get(Calendar.YEAR);
