@@ -1,7 +1,7 @@
 package com.example.torjan;
 
 public class word {
-// testing
+// testin
     private String state_name;
     private String state_no;
 
